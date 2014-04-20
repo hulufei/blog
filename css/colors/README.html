@@ -1,0 +1,101 @@
+<h1 id="colors">COLORS</h1>
+<h2 id="better-colors-for-the-web-">Better colors for the web.</h2>
+<p>View the project page at <a href="http://clrs.cc" title="Colors: Better colors for the web."><a href="http://clrs.cc">http://clrs.cc</a></a></p>
+<h2 id="what-is-this-">What is this?</h2>
+<p>A simple color palette for the web. Let&#39;s be honest, out of the box, the color strings that css provides aren&#39;t... the tops.
+This is a set of sass/less/stylus/css variables and css classes that can help fix that.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Grab a copy of the code by downloading the zip from this page - or cloning/forking the repo.</p>
+<pre><code class="lang-bash">git clone git@github.com:mrmrs/colors.git
+</code></pre>
+<h3 id="using-the-css">Using the css</h3>
+<p>Simply copy colors.css to your css directory and include the file like so in the head of your html document</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/colors.css&quot;&gt;
+</code></pre>
+<h3 id="using-sass-stylus-less-and-myth">Using sass, stylus, less, and myth</h3>
+<p>If you&#39;d like to customize colors.css to your liking, you can edit the source in a variety of flavors.
+Colors uses <a href="http://gulpjs.com" title="GulpJs - A sweet js taskrunner">gulp</a> as a taskrunner.
+There are individual gulp tasks for each preprocessor*
+Each gulp task also comes with automatic vendor prefix support, csslint output, and livereload updates
+built in.
+It&#39;s pretty sweet.</p>
+<p>First run</p>
+<pre><code class="lang-bash">npm install -g gulp
+</code></pre>
+<p>Then</p>
+<pre><code class="lang-bash">npm install
+</code></pre>
+<p>Once that is complete you can use any preprocessor like so</p>
+<p>Recompile everything imported in ./sass/colors.scss to css/colors.css
+everytime a file in the ./sass directory is updated</p>
+<pre><code class="lang-bash">gulp sass
+</code></pre>
+<p>Recompile everything imported in ./stylus/colors.styl to ./css/colors.css
+everytime a file in the ./stylus directory is updated</p>
+<pre><code class="lang-bash">gulp stylus
+</code></pre>
+<p>Recompile myth/colors.css to css/colors.css everytime myth/colors.css is updated</p>
+<pre><code class="lang-bash">gulp myth
+</code></pre>
+<p>If you would like to minify ./css/colors.css you can just run</p>
+<pre><code class="lang-bash">gulp minify
+</code></pre>
+<ul>
+<li>Except for less which doesn&#39;t seem well supported with gulp yet. Hopefully we can
+better support less soon.</li>
+</ul>
+<p>If you are compiling less and want to run autoprefixer - you can run that on compiled css with</p>
+<pre><code>gulp prefix
+</code></pre><h2 id="directory-structure">Directory structure</h2>
+<pre><code>
+    colors/
+          ├── README.md
+          ├── bower.json
+          ├── coffee
+          │   └── colors.coffee
+          ├── css
+          │   ├── colors.css
+          │   └── colors.min.css
+          ├── gulpfile.js
+          ├── index.html
+          ├── js
+          │   └── colors.js
+          ├── less
+          │   ├── _links.less
+          │   ├── _skins.less
+          │   ├── _variables.less
+          │   └── colors.less
+          ├── myth
+          │   └── colors.css
+          ├── package.json
+          ├── sass
+          │   ├── _links.scss
+          │   ├── _skins.scss
+          │   ├── _variables.scss
+          │   └── colors.scss
+          ├── site.css
+          └── stylus
+              ├── colors.styl
+              ├── links.styl
+              ├── skins.styl
+              └── variables.styl
+</code></pre><h1 id="author">Author</h1>
+<p><a href="http://mrmrs.cc" title="Adam Morse - Designer + Developer in SF">MRMRS</a></p>
+<h1 id="license">License</h1>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2014 @mrmrs</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>

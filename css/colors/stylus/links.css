@@ -1,0 +1,19 @@
+/* ==========================================================================
+   PRETTIER LINKS
+   ========================================================================== */
+a {
+  transition: color 0.3s ease-in-out;
+}
+a:link {
+  color: #00f;
+}
+a:visited {
+  color: #808080;
+  border-bottom-color: #808080;
+}
+a:hover {
+  color: #f00;
+}
+a:active {
+  color: #ffa500;
+}
