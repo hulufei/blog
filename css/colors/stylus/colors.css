@@ -112,14 +112,13 @@ a {
   transition: color 0.3s ease-in-out;
 }
 a:link {
-  color: #0074d9;
+  color: #6dbbff;
 }
 a:visited {
-  color: #aaa;
-  border-bottom-color: #aaa;
+  color: #6dbbff;
 }
 a:hover {
-  color: #ff4136;
+  color: #0074d9;
 }
 a:active {
   color: #ff851b;

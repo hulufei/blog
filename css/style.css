@@ -108,20 +108,18 @@ a {
   transition: color 0.3s ease-in-out;
 }
 a:link {
-  color: #0074d9;
+  color: #6dbbff;
 }
 a:visited {
-  color: #aaa;
-  border-bottom-color: #aaa;
+  color: #6dbbff;
 }
 a:hover {
-  color: #ff4136;
+  color: #0074d9;
 }
 a:active {
   color: #ff851b;
 }
 @import "fontello/css/fontello.css";
-@import "../bower/github-fork-ribbon-css/gh-fork-ribbon.css";
 @import "hexo-highlight.css";
 html {
   font-size: 14px;
@@ -142,14 +140,24 @@ h1 {
 h2 {
   font-size: 1.5em;
 }
-::-moz-selection {
-  background: rgba(0,0,0,0.1);
-}
-::selection {
-  background: rgba(0,0,0,0.1);
-}
 a {
   text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  padding-left: 1em;
+  margin-left: 1em;
+  border-left: 2px solid #ddd;
+  color: #8b8b8b;
+  font-size: 0.9em;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
 }
 .header a,
 .footer a {
@@ -159,40 +167,36 @@ a {
 .footer a:hover {
   color: #0074d9;
 }
-img {
-  max-width: 100%;
-}
-blockquote {
-  padding-left: 1em;
-  margin-left: 1em;
-  border-left: 2px solid #ddd;
-  font-style: italic;
-  font-size: 0.9em;
-}
-.f-left {
-  float: left;
-}
-.f-right {
-  float: right;
-}
 .container {
   width: 650px;
   margin: 0 auto;
-}
-.icon {
-  display: inline-block;
-  width: 30px;
-  line-height: 30px;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  color: #111;
-  text-align: center;
 }
 .header {
   position: relative;
   border-bottom: 1px solid #aaa;
   margin-top: 28px;
+}
+.header .icon {
+  position: absolute;
+  left: 25px;
+  bottom: 0;
+  width: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  z-index: -1;
 }
 .header .icon-rss {
   position: absolute;
@@ -202,6 +206,8 @@ blockquote {
   font-size: 1.5em;
 }
 .circle {
+  position: relative;
+  z-index: 10;
   display: inline-block;
   line-height: 0;
   -webkit-border-radius: 50%;
@@ -212,18 +218,6 @@ blockquote {
   -ms-transition: linear 0.25s;
   transition: linear 0.25s;
   vertical-align: bottom;
-}
-.circle:hover {
-  -webkit-transition: ease-out 0.3s;
-  -moz-transition: ease-out 0.3s;
-  -o-transition: ease-out 0.3s;
-  -ms-transition: ease-out 0.3s;
-  transition: ease-out 0.3s;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
 }
 a.circle {
   color: transparent;
@@ -250,167 +244,24 @@ a.circle {
   list-style: none;
   margin-bottom: 1em;
 }
-.section-list .icon-terminal {
-  margin: 0 5px;
+.posts time {
+  float: right;
 }
-.collapse-icons .icon {
-  display: none;
-  position: absolute;
-  left: 25px;
-  bottom: 0;
-  z-index: -1;
-  -webkit-animation-duration: 3s;
-  -moz-animation-duration: 3s;
-  -o-animation-duration: 3s;
-  -ms-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-fill-mode: forwards;
-  -ms-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-name: roll;
-  -moz-animation-name: roll;
-  -o-animation-name: roll;
-  -ms-animation-name: roll;
-  animation-name: roll;
-}
-.icon-flickr {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  -o-animation-delay: 1s;
-  -ms-animation-delay: 1s;
-  animation-delay: 1s;
-  left: 95px;
-}
-.icon-fivehundredpx {
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
-  -o-animation-delay: 2s;
-  -ms-animation-delay: 2s;
-  animation-delay: 2s;
-}
-.icon-github-circled {
-  -webkit-animation-delay: 3s;
-  -moz-animation-delay: 3s;
-  -o-animation-delay: 3s;
-  -ms-animation-delay: 3s;
-  animation-delay: 3s;
-}
-.icon-github-1 {
-  -webkit-animation-delay: 4s;
-  -moz-animation-delay: 4s;
-  -o-animation-delay: 4s;
-  -ms-animation-delay: 4s;
-  animation-delay: 4s;
+.icon:hover:before {
+  -webkit-transition: 500ms;
+  -moz-transition: 500ms;
+  -o-transition: 500ms;
+  -ms-transition: 500ms;
+  transition: 500ms;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 .footer {
   padding-top: 10px;
   margin-bottom: 28px;
   border-top: 1px solid #aaa;
   text-align: center;
-}
-.github-fork-ribbon-wrapper {
-  width: 108px;
-  height: 108px;
-  margin-top: -28px;
-}
-.github-fork-ribbon-wrapper.right .github-fork-ribbon {
-  top: 25px;
-  right: -60px;
-  background-color: #000;
-}
-.github-fork-ribbon-wrapper.right .github-fork-ribbon a,
-.github-fork-ribbon-wrapper.right .github-fork-ribbon a:hover {
-  font-size: 10px;
-}
-@-moz-keyframes roll {
-  0% {
-    display: block;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes roll {
-  0% {
-    display: block;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes roll {
-  0% {
-    display: block;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-ms-keyframes roll {
-  0% {
-    display: block;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes roll {
-  0% {
-    display: block;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
