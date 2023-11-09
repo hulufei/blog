@@ -2,6 +2,12 @@
 layout: layouts/base.njk
 ---
 
+<style>
+article > :last-child:after {
+  content: '...'
+}
+</style>
+
 <h1>Huiliu</h1>
 
 {% for post in search.pages("type=post") %}
@@ -20,6 +26,6 @@ layout: layouts/base.njk
       </h1>
     {% endif %}
   </header>
-  {{ post.content | md | safe }}
+  {{ post.excerpt | md | safe }}
 </article>
 {% endfor %}

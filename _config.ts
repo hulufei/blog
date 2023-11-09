@@ -36,4 +36,11 @@ site.use(
   }),
 );
 
+site.preprocess([".html"], (page) => {
+  // Extract the first paragraph as excerpt
+  const content = page.data.content as string;
+  const paragraphs = content.split(/\n{2,}/);
+  page.data.excerpt = paragraphs[0];
+});
+
 export default site;

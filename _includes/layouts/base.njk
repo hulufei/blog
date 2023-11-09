@@ -7,7 +7,7 @@
   <body>
     {{ content | safe }}
     <footer>
-       © 2023 |
+      © {{ date | date('yyyy') }} |
       <a href="/feed.xml">RSS feed</a> |
       <a href="mailto:hulufei@outlook.com">hulufei@outlook.com</a>
     </footer>
