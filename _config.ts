@@ -4,6 +4,7 @@ import date from "lume/plugins/date.ts";
 
 const site = lume(
   {
+    location: new URL("https://blog.hulufei.top"),
     emptyDest: false,
     server: {
       open: true,
