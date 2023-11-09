@@ -48,4 +48,4 @@ fn main() {
 ```
 
 Final notes: The `Mutex` part may seem complex and unnecessary for such a simple program.
-I will share how I used [Google Bard](https://bard.google.com) to help me write this program in another post.
+I will share how I used [Google Bard](https://bard.google.com) to help me write this program in [another post](/post/rubber-duck-debugging-with-ai).
