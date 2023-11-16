@@ -10,7 +10,7 @@ article > :last-child:after {
 
 <h1>Huiliu</h1>
 
-{% for post in search.pages("type=post") %}
+{% for post in search.pages("type=post", "date=desc") %}
 <article>
   <header>
     <p>
