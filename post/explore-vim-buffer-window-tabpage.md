@@ -1,5 +1,8 @@
 ---
 title: Exploring Buffer, Window and Tab Page in Vim
+date: 2023-11-16
+tags:
+  - neovim
 ---
 
 Buffer, window and tab page are three fundamental concepts in Vim, I've been

@@ -1,5 +1,9 @@
 ---
 title: Rubber Duck Debugging with AI
+date: 2023-11-09
+tags:
+  - rust
+  - AI
 ---
 
 When I was in the midst of coding my [little rust program](/post/faulty-double-clicking),

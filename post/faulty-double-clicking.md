@@ -1,5 +1,8 @@
 ---
 title: Solve the Infamous Logitech Double Click Problem in Less than 30 Lines of Rust Code
+date: 2023-11-08
+tags:
+  - rust
 ---
 
 I recently experienced a double-clicking problem with my Logitech mouse.
