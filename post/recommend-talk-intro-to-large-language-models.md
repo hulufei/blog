@@ -5,10 +5,9 @@ tags:
   - AI
 ---
 
-I stumbled upon an impressive talk by Andrej Karpathy:
+I discovered an impressive talk delivered by Andrej Karpathy:
 [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g).
-
-Especially, I like the concept of LLM OS. We'll see in
-the future.
+I found the concept of LLM OS particularly intriguing. It'll
+be fascinating to see its development in the future.
 
 ![LLM OS](/static/images/llm-os.png)
