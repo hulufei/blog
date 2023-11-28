@@ -17,6 +17,8 @@ const site = lume(
   },
 );
 
+site.copy("static");
+
 site.use(date());
 
 site.use(
