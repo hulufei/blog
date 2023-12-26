@@ -1,7 +1,22 @@
 import lume from "lume/mod.ts";
 import feed from "lume/plugins/feed.ts";
 import date from "lume/plugins/date.ts";
-import katex, { defaults } from "lume/plugins/katex.ts";
+import texmath from "npm:markdown-it-texmath";
+import katex from "npm:katex@0.16.9";
+
+const markdown = {
+  plugins: [
+    [texmath, {
+      engine: katex,
+      // Compatible with peek.nvim, order matters
+      delimiters: ["gitlab", "dollars"],
+      katexOptions: {
+        output: "mathml",
+        macros: { "\\R": "\\mathbb{R}" },
+      },
+    }],
+  ],
+};
 
 const site = lume(
   {
@@ -12,6 +27,7 @@ const site = lume(
     },
   },
   {
+    markdown,
     search: {
       returnPageData: true,
     },
@@ -21,18 +37,6 @@ const site = lume(
 site.copy("static");
 
 site.use(date());
-site.use(katex({
-  options: {
-    output: "mathml",
-    delimiters: [
-      // @ts-ignore: delimiters is an array
-      ...defaults.options.delimiters,
-      // LaTeX uses $…$, but it ruins the display of normal `$` in text:
-      // { left: "$", right: "$", display: false },
-      { left: "\\$", right: "\\$", display: false },
-    ],
-  },
-}));
 
 site.use(
   feed({
