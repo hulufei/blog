@@ -1,13 +1,13 @@
 ---
-title: Curl Requests with CSRF Guard
+title: Using Curl Requests with CSRF Guard
 date: 2023-12-28
 tags:
   - til
 ---
 
-We should activate the curl's cookie engine to make it works for requests with CSRF token.
+To ensure that curl works for requests involving CSRF tokens, activating the curl's cookie engine is necessary.
 
-There are two related options:
+There are two related options to consider:
 
 - `-c, --cookie-jar <filename>` Specify to which file you want curl to write all cookies after a completed operation.
 - `-b, --cookie <data>` Pass the data to the HTTP server in the Cookie header.
@@ -15,20 +15,22 @@ There are two related options:
 
 > Users very often want to both read cookies from a file and write updated cookies back to a file, so  using
 > both -b, --cookie and -c, --cookie-jar in the same command line is common.
-> &mdash; <cite>man curl</cite>
+>
+> — <cite>man curl</cite>
 
-A typical workflow will be like this:
+So, a typical workflow might like this:
 
-First, simulate the user first arriving at the page with a GET request. E.g.
+Firstly, simulating the user's initial arrival at the page with a GET request. E.g.
 
 ```
 curl -v -c cookies.txt -b cookies.txt host.com/page/login.html
 ```
 
-Then, simulate filling in the form fields and sending them as a POST. E.g.
+Subsequently, simulating filling in the form fields and sending them as a POST request. E.g.
 
 ```
 curl -v -c cookies.txt -b cookies.txt -d "username=john&password=123&csrf_token=extract_from_hidden_input" host.com/login
 ```
 
-From here, we should login successfully, all the following requests with cookies.txt should be authenticated properly.
+Following this process should result in a successful login. All subsequent requests utilizing `cookies.txt` should be
+authenticated properly.
