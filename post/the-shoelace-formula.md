@@ -4,7 +4,7 @@ date: 2023-12-23
 tags:
   - til
   - math
-draft: true
+draft: false
 ---
 
 [Advent of Code 2023 Day 18](https://adventofcode.com/2023/day/18) 涉及到求多边形的面积问题，
@@ -36,7 +36,7 @@ x_2&y_2
 x_1y_2-x_2y_1
 ```
 
-这样，鞋带公式就很容易理解了。
+这样，鞋带公式怎么来的就比较容易理解了。更详细的说明参考[这个视频](https://www.youtube.com/watch?v=0KjG8Pg6LGk)。
 
 ## 叉积的几何意义
 
@@ -44,4 +44,58 @@ x_1y_2-x_2y_1
 [MIT 18.02: Multivariable Calculus](https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/)
 关于向量和矩阵的部分。
 
-更详细的说明参考[这个视频](https://www.youtube.com/watch?v=0KjG8Pg6LGk)。
+回到最基础的平行四边形面积的一半来计算三角形面积：
+
+![三角形面积](/static/images/triangle-area.png){width="300"}
+
+其中三角形的高是 $`\mathbf{|\overrightarrow{B}|}\sin \theta`$。
+我们把向量 $`\mathbf{\overrightarrow{A}}`$ 旋转 90 度得到 $`\mathbf{\overrightarrow{A\prime}}`$：
+
+![rotate 90](/static/images/rotate-vector-a.png){width="300"}
+
+其中 $`\mathbf{|\overrightarrow{A}|}=\mathbf{|\overrightarrow{A\prime}|}`$ 长度相等，所以
+$`\mathbf{|\overrightarrow{A}|}\mathbf{|\overrightarrow{B}|}\sin(\theta)=\mathbf{|\overrightarrow{A\prime}|}\mathbf{|\overrightarrow{B}|}\cos(\theta')=\mathbf{\overrightarrow{A\prime}}\cdot \mathbf{\overrightarrow{B}}`$.
+
+$`\mathbf{\overrightarrow{A\prime}}\cdot \mathbf{\overrightarrow{B}}`$ 叫做点乘（dot product）。
+
+## 点乘的几何意义
+
+首先，二维向量的减法在图形上是这样的：
+
+![dot product](/static/images/dot-product.svg)
+
+根据 [the law of cosines](https://en.wikipedia.org/wiki/Law_of_cosines):
+(如果 $\theta$ 是 $90 \degree$ 就是勾股定理)
+
+```math
+|\mathbf{A}-\mathbf{B}|^2=|\mathbf{A}|^2+|\mathbf{B}|^2-2|\mathbf{A}||\mathbf{B}|cos \theta
+```
+
+$`\Rightarrow (a_1^2+a_2^2)+(b_1^2+b_2^2)-((a_1-b_1)^2+(a_2-b_2)^2)=2|\mathbf{A}||\mathbf{B}|cos \theta`$
+
+$`\Rightarrow a_1b_1+a_2b_2=|\mathbf{A}||\mathbf{B}|cos \theta`$
+
+$`\Rightarrow \mathbf{A}\cdot \mathbf{B}=|\mathbf{A}||\mathbf{B}|cos \theta`$
+
+这就引申出了点乘的定义：$`\mathbf{A}\cdot \mathbf{B}=\sum a_ib_i=a_1b_1+a_2b_2+a_3b_3+\cdots`$
+
+之前我们把向量 $`\mathbf{\overrightarrow{A}}=\langle a_1, a_2\rangle`$ 旋转 90 度得到
+$`\mathbf{\overrightarrow{A\prime}}=\langle -a_2, a_1\rangle`$
+
+![rotated 90](/static/images/vector-a-rotated-90.png)
+
+所以 $`\mathbf{\overrightarrow{A\prime}}\cdot \mathbf{\overrightarrow{B}}=-a_2b_1 + a_1b_2=a_1b_2 - a_2b_1`$
+
+从而，三角形的面积 =
+
+```math
+\frac{1}{2}\mathbf{|\overrightarrow{A}|}\mathbf{|\overrightarrow{B}|}\sin(\theta)=
+\frac{1}{2}\mathbf{|\overrightarrow{A\prime}|}\mathbf{|\overrightarrow{B}|}\cos(\theta')=
+\frac{1}{2}\mathbf{\overrightarrow{A\prime}}\cdot \mathbf{\overrightarrow{B}}=
+\frac{1}{2}(a_1b_2 - a_2b_1)=
+\frac{1}{2}\mathbf{\overrightarrow{A}}\times \mathbf{\overrightarrow{B}}
+```
+
+得证。
+
+以上，构成了鞋带公式的基础。

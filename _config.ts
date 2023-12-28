@@ -3,9 +3,11 @@ import feed from "lume/plugins/feed.ts";
 import date from "lume/plugins/date.ts";
 import texmath from "npm:markdown-it-texmath";
 import katex from "npm:katex@0.16.9";
+import { markdownItAttrs } from "lume/deps/markdown_it.ts";
 
 const markdown = {
   plugins: [
+    markdownItAttrs,
     [texmath, {
       engine: katex,
       // Compatible with peek.nvim, order matters
