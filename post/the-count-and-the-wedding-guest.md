@@ -1,6 +1,7 @@
 ---
 title: 《The Count and the Wedding Guest》
 date: 2024-01-09
+bookAuthor: O. Henry
 tags:
   - reading
 ---
