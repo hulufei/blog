@@ -12,12 +12,14 @@ article > :last-child:after {
 
 {% for post in search.pages("type=post", "date=desc") %}
 <article>
-  <header>
-    <p>
-      <a href="{{ post.url }}">
+  <p>
+    <a href="{{ post.url }}">
+      <time datetime="{{ post.date | date('yyyy-MM-dd') }}">
         {{ post.date | date('yyyy-MM-dd') }}
-      </a>
-    </p>
+      </time>
+    </a>
+  </p>
+  <header>
     {% if post.title %}
       <h1>
         <a href="{{ post.url }}">
